@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(of = "id")
 
 @Entity(name = "transactions")
-@Table(name = "transations")
+@Table(name = "transactions")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private BigDecimal amount;
     @ManyToOne
     @JoinColumn(name = "sender_id")
