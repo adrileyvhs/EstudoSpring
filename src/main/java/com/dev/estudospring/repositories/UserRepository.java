@@ -1,11 +1,11 @@
 package com.dev.estudospring.repositories;
 
-import com.dev.estudospring.domain.users.Users;
+import com.dev.estudospring.domain.users.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<Users,Long> {
-    Optional<Users> findUsersBycpf(String cpf);
-    Optional<Users> findUsersById(long id);
+public interface UserRepository extends JpaRepository<User,Long> {
+    Optional<User> findUsersBycpf(String cpf);
+    Optional<User> findUsersById(long id);
 }

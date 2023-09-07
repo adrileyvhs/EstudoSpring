@@ -1,5 +1,6 @@
 package com.dev.estudospring.domain.users;
 
+import com.dev.estudospring.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +30,15 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private  UserType userType;
 
-
+    public  User(UserDto userDto){
+        this.firstname = userDto.firstname();
+        this.lastname = userDto.lastname();
+        this.cpf = userDto.cpf();
+        this.email = userDto.email();
+        this.password = userDto.password();
+        this.balance = userDto.balance();
+        this.userType = userDto.userType();
+    }
 
 
 

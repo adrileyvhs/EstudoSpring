@@ -1,6 +1,6 @@
 package com.dev.estudospring.transacao;
 
-import com.dev.estudospring.domain.users.Users;
+import com.dev.estudospring.domain.users.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,10 +22,10 @@ public class Transaction {
     private BigDecimal amount;
     @ManyToOne
     @JoinColumn(name = "sender_id")
-    private Users sender;
+    private User sender;
     @ManyToOne
     @JoinColumn(name = "receiver_id")
-    private Users receiver;
+    private User receiver;
     private LocalDateTime timestamp;
 
 
