@@ -22,8 +22,10 @@ public class TransationsServices {
     private TransactrionRepository repository;
     @Autowired
     private RestTemplate  restTemplate;
+    @Autowired
+    private NotificationService notificationService;
 
-    public void createTransactions(TransactionDto trasactionDto) throws Exception {
+    public  Transaction createTransactions(TransactionDto trasactionDto) throws Exception {
         User sender  = this.userServices.findUsersById(trasactionDto.senderid());
         User receive = this.userServices.findUsersById(trasactionDto.receiveid());
         userServices.ValidateTransactions(sender,trasactionDto.value());
@@ -31,13 +33,16 @@ public class TransationsServices {
         if(!isAuthorized){
             throw new Exception("Trasação Não Autorizada");
         }
-        Transaction transaction= new Transaction(null,trasactionDto.value(),sender,receive, LocalDateTime.now());
-        sender.setBalance(sender.getBalance().subtract(trasactionDto.value()));
-        receive.setBalance(receive.getBalance().add(trasactionDto.value()));
+         Transaction transaction= new Transaction(null,trasactionDto.value(),sender,receive, LocalDateTime.now());
+         sender.setBalance(sender.getBalance().subtract(trasactionDto.value()));
+         receive.setBalance(receive.getBalance().add(trasactionDto.value()));
+         repository.save(transaction);
+         userServices.saveUsers(sender);
+         userServices.saveUsers(receive);
+         this.notificationService.sendNotification(sender,"Trasação Realizada com sucesso! ");
+        this.notificationService.sendNotification(receive,"Trasação Recebida com sucesso! ");
 
-       repository.save(transaction);
-       userServices.saveUsers(sender);
-       userServices.saveUsers(receive);
+        return transaction;
 
     }
     public boolean autorizeTranscations(User sender, BigDecimal value){

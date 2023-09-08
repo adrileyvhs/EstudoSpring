@@ -16,10 +16,10 @@ public class NotificationService {
     public void sendNotification(User users , String message) throws Exception {
         String email = users.getEmail();
         NotificationDto notificationRequest = new NotificationDto(email,message);
-        ResponseEntity<String> notificationResponse =restTemplate.postForEntity("(http://o4d9z.mocklab.io/notify",notificationRequest,String.class);
-         if(!(notificationResponse.getStatusCode() == HttpStatus.OK)){
-             throw new Exception(" SERVIÇO FORA DO AR ");
-         }
+//        ResponseEntity<String> notificationResponse =restTemplate.postForEntity("(http://o4d9z.mocklab.io/notify",notificationRequest,String.class);
+//         if(!(notificationResponse.getStatusCode() == HttpStatus.OK)){
+//             throw new Exception(" SERVIÇO FORA DO AR ");
+//         }
     }
 
 }
