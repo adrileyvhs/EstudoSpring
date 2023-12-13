@@ -39,9 +39,8 @@ public class TransationsServices {
          repository.save(transaction);
          userServices.saveUsers(sender);
          userServices.saveUsers(receive);
-         this.notificationService.sendNotification(sender,"Trasação Realizada com sucesso! ");
-        this.notificationService.sendNotification(receive,"Trasação Recebida com sucesso! ");
-
+           this.notificationService.sendNotification(sender,"Transação Realizada com sucesso! ");
+           this.notificationService.sendNotification(receive,"Transação Recebida  com sucesso! ");
         return transaction;
 
     }

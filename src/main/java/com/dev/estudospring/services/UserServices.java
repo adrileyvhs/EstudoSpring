@@ -23,20 +23,17 @@ public class UserServices {
             throw new Exception(" SALDO INSUFICIENTE !!");
         }
     }
-
     public User findUsersById(Long id) throws Exception {
        return this.repository.findUsersById(id).orElseThrow(() -> new Exception("Usuário Não Encontrado!"));
     }
     public void saveUsers(User users){
         this.repository.save(users);
     }
-
     public User createUser(UserDto userDto) {
          User newUser = new User(userDto);
          this.saveUsers(newUser);
          return  newUser;
     }
-
     public List<User> getAllUsers() {
        return this.repository.findAll();
     }
