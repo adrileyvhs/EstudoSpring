@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EstudoSpring.iml" filepath="$PROJECT_DIR$/EstudoSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../geral/Geral.iml" filepath="$PROJECT_DIR$/../geral/Geral.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../DIO/banco/ModuloGeral.iml" filepath="$PROJECT_DIR$/../DIO/banco/ModuloGeral.iml" />
     </modules>
   </component>
 </project>
