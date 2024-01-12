@@ -76,15 +76,12 @@ public class ListaEncadeada<T> {
     public boolean isEmpty(){
         return referenciaEntrada == null ? true : false;
     }
-
     public No<T> getReferenciaEntrada() {
         return referenciaEntrada;
     }
-
     public void setReferenciaEntrada(No<T> referenciaEntrada) {
         this.referenciaEntrada = referenciaEntrada;
     }
-
     @Override
     public String toString() {
         String strRetorno = "";
